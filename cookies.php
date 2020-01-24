@@ -14,7 +14,7 @@
 <section>
 <?php
 $user_name = "anvandare";
-$user_value = $_SERVER["REMOTE_USER"];
+$user_value = $_SERVER['REMOTE_HOST'] ?? gethostbyaddr( $_SERVER["REMOTE_ADDR"]);
 setcookie($user_name, $user_value, time()+(86400 * 30), "/");
 
 
