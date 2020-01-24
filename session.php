@@ -12,7 +12,8 @@
 </head>
 <body>
     <h1>Sessioner</h1>
-    <?php include 'navbar.php'?>
+    <?php   include 'navbar.php';
+            include 'handyfunctions.php';?>
 <article>
 <form action="session.php" method="get">
 Användarnamn: <input type="text" name="anv">(tips: pepe)<br>
@@ -22,12 +23,6 @@ Lösenord:  <input type="password" name="losen">(tips: feelsbadman)<br>
 
 </article>
 <?php
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-  }
 if(!isset($_SESSION['anvandare'])){
         if(isset($_GET["login"])){
             $anv = test_input($_GET["anv"]);
