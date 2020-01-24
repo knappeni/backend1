@@ -21,4 +21,15 @@ $conn->set_charset('utf8');
         return $conn;
       };
     }
+function count_lines($file){
+$linecount = 0;
+$handle = fopen($file, "r");
+while(!feof($handle)){
+  $line = fgets($handle);
+  $linecount++;
+}
+
+fclose($handle);
+return $linecount;
+}
 ?>
