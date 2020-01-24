@@ -10,8 +10,7 @@
 </head>
 <body>
     <h1>Gästbok</h1>
-    <?php   include 'navbar.php';
-            include 'handyfunctions.php';?>
+    <?php include 'navbar.php'?>
 <section>
 <h3>Besöksräknaren</h3>
 <p>Loggar totalt antal besök och tidpunkter för besök i en fil på servern</p>
