@@ -17,7 +17,7 @@
 </section>
 <?php
 $ip = $_SERVER["REMOTE_ADDR"];
-$user = $_SERVER["REMOTE_USER"];
+$user = $_SERVER['REMOTE_HOST'] ?? gethostbyaddr( $_SERVER["REMOTE_ADDR"]);
 $time = date("H:i:s j.n.Y");
 $logString = "user: ".$user." | ip: ".$ip." | time: ".$time."\n";
 echo("<p>Strängen som skapades: ".$logString."</p>");
