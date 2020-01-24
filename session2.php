@@ -29,8 +29,9 @@ if(isset($_SESSION["anvandare"])){
     print("<img src='bilder/meme7.jpg' alt='meme' width='500' height='333'>");
     
 
-}else print("<p>Du är inte inloggad weeb</p>");
-      print("<p>Vill du logga in? <a href='session.php'>Tryck Här</a> </p>");
+    print("<br><a href='logout.php'>CLICKA HÄR FÖR ATT LOGGA UT</a>");
+}else {print("<p>Du är inte inloggad weeb</p>");
+      print("<p>Vill du logga in? <a href='session.php'>Tryck Här</a> </p>");}
 ?>
 </body>
 </html>

@@ -26,7 +26,8 @@ echo("<p>Strängen som skapades: ".$logString."</p>");
 $myfile = fopen("besok.log","a+") or die("Filen gick inte att öppna");
 fwrite($myfile, $logString);
 fclose($myfile);
-
+$filestring = "besok.log";
+print("<p>Totala antalet besök på sidan: ".count_lines($filestring)."</p>");
 ?>
 </body>
 </html>
