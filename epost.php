@@ -22,27 +22,27 @@ Användarnamn: <input type="text" name="anvandare"><br>
 </article>
 <?php
 include('handyfunctions.php');
-$epost = test_input($_GET["epost"]);
-$anvandare = test_input($_GET["anvandare"]);
-if(isset($_GET["skicka"]) and $epost != "" and $anvandare !=""){   
-    $tecken = range("a","z");
-    $storatecken = range("A","Z");
-    $siffror = range(0,9);
-    $special = array("!","@","?","{","}","#","%","&","(",")","/");
-    $teckenochsiffror = array_merge($tecken,$siffror,$storatecken,$special);
-    $losenord = "";
-    for($i = 0; $i <= 16; $i++){$losenord = $losenord . $teckenochsiffror[rand(0,count($teckenochsiffror))];}    
-    if (filter_var($epost, FILTER_VALIDATE_EMAIL)){
-        echo("<p>".$epost. " är en giltig e-postadress <br> Ditt lösenord är: ".$losenord."</p>");
-        $subject = "Välkommen";
-        $message = "Tack för att du registrerat dig! " .$losenord. " är ditt lösenord";
-        mail($epost,$subject, $message);
 
-    }
-else {echo("<p>".$epost. " är inte en giltig e-postadress</p>");}
 
-}
-else echo("<p>Fyll i Registreringsformuläret</p>");
+if(isset($_GET["skicka"])){
+    $anvandare = test_input($_GET["anvandare"]);
+    $epost = test_input($_GET["epost"]);
+    if ($epost != "" and $anvandare !=""){
+        $tecken = range("a","z");
+        $storatecken = range("A","Z");
+        $siffror = range(0,9);
+        $special = array("!","@","?","{","}","#","%","&","(",")","/");
+        $teckenochsiffror = array_merge($tecken,$siffror,$storatecken,$special);
+        $losenord = "";
+        for($i = 0; $i <= 16; $i++){$losenord = $losenord . $teckenochsiffror[rand(0,count($teckenochsiffror))];}
+        if (filter_var($epost, FILTER_VALIDATE_EMAIL)){
+            echo("<p>".$epost. " är en giltig e-postadress <br> Ditt lösenord är: ".$losenord."</p>");
+            $subject = "Välkommen";
+            $message = "Tack för att du registrerat dig! " .$losenord. " är ditt lösenord";
+            mail($epost,$subject, $message);
+        } else echo("<p>".$epost. " är inte en giltig e-postadress</p>");
+    } else echo "<p>Du måste mata in något...</p>";
+} else echo("<p>Fyll i Registreringsformuläret</p>");
  
 
    
