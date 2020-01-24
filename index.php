@@ -9,7 +9,7 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <h1>Datum</h1>
+    <h1>Index</h1>
     <?php include 'navbar.php'?>
 <?php
 
