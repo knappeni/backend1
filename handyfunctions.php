@@ -27,10 +27,20 @@ $handle = fopen($file, "r");
 while(!feof($handle)){
   $line = fgets($handle);
   $linecount++;
- 
 }
-
 fclose($handle);
 return $linecount;
+}
+
+function show_guestbook($guests){
+$guestbook_array = array();
+$comment = fopen($guests, "r");
+while(!feof($comment)){
+  $item = fgets($comment);
+  array_unshift($guestbook_array, $item);
+}
+fclose($comment);
+$stringBook = implode(" ",$guestbook_array);
+return $stringBook;
 }
 ?>

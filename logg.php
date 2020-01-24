@@ -32,6 +32,34 @@ print("<p>Totala antalet besök på sidan: ".count_lines($filestring)."</p>");
 
 echo ("<h3>Uppgift 9</h3>");
 ?>
+
+<form action="logg.php" method="get">
+Namn: <input type="text" name="guestNamn"><br>
+Epost: <input type="text" name="guestEpost"><br>
+Kommentar: <input type="text" name="guestKommentar"><br>
+<input type="submit" name="send" value="Skicka">
+<input type="submit" name="getcomments" value="Visa kommentarer">
+</form>
+<?php
+if(isset($_GET["send"])){
+    $guest_name = test_input($_GET["guestNamn"]);
+    $guest_email = test_input($_GET["guestEpost"]);
+    $guest_comment = test_input($_GET["guestKommentar"]);
+    if ($guest_name != "" and $guest_email !="" and $guest_comment !=""){
+        if (filter_var($guest_email, FILTER_VALIDATE_EMAIL)){
+            $guestString = "time: ".$time." |  name: ".$guest_name." | email: ".$guest_email." | comment: ".$guest_comment."\n";
+            $my_file = fopen("guestbook.log","a+") or die("Filen gick inte att öppna");
+            fwrite($my_file, $guestString);
+            fclose($my_file);
+            echo "Din kommentar har tagits emot";
+        } else echo "Eposten är inte giltig";
+    } else echo "Du måste fylla i alla fält";
+}
+if(isset($_GET["getcomments"])){
+    $my_file = "guestbook.log";
+    print("<p>Comments: ".show_guestbook($my_file)."</p>");
+}
+?>
 </section>
 </body>
 </html>
