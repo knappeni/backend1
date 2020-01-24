@@ -47,7 +47,7 @@ if(isset($_GET["send"])){
     $guest_comment = test_input($_GET["guestKommentar"]);
     if ($guest_name != "" and $guest_email !="" and $guest_comment !=""){
         if (filter_var($guest_email, FILTER_VALIDATE_EMAIL)){
-            $guestString = "Timestamp: ".$time." |  Name: ".$guest_name." | Email: ".$guest_email." | comment: ".$guest_comment."\n";
+            $guestString = "Timestamp: ".$time." |  Name: ".$guest_name." | Email: ".$guest_email." | Comment: ".$guest_comment."\n";
             $my_file = fopen("guestbook.log","a+") or die("Filen gick inte att öppna");
             fwrite($my_file, $guestString);
             fclose($my_file);
