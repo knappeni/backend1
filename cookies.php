@@ -13,6 +13,7 @@
 <?php include 'navbar.php'?>
 <section>
 <?php
+
 $user_name = "anvandare";
 $user_value = $_SERVER['REMOTE_HOST'] ?? gethostbyaddr( $_SERVER["REMOTE_ADDR"]);
 setcookie($user_name, $user_value, time()+(86400 * 30), "/");
@@ -20,8 +21,10 @@ setcookie($user_name, $user_value, time()+(86400 * 30), "/");
 
 if(isset($_COOKIE["anvandare"])){
     print("<p>Hejsan, ".$_COOKIE["anvandare"]."</p>");
-    print("<p>Du var hÃ¤r senast: ".$_COOKIE["lastvisit"]."</p>");
+    print("<p>Du var här senast: ".$_COOKIE["lastvisit"]."</p>");
 }
+else echo("<p>Du har inte varit här tidigare</p>");
+
 $visited_name = "lastvisit";
 $visited_time = date("H:i:s j.n.Y");
 setcookie($visited_name, $visited_time, time()+(86400 * 30), "/");

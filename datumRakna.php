@@ -18,9 +18,10 @@
 $dag = $_GET["dag"];
 $manad = $_GET["manad"];
 $ar = $_GET["ar"];
+$maxDag = cal_days_in_month(CAL_GREGORIAN, $manad, $ar);
 
-echo "<p> Inmatade datumet är: ".$dag. ".".$manad.".".$ar."</p>";
-if(($dag <= 31) and ($dag > 0)){
+if(($dag <= $maxDag) and ($dag > 0)){
+    echo "<p> Inmatade datumet är: ".$dag. ".".$manad.".".$ar."</p>";
     echo("<p>Dagen ser ut att vara möjlig</p>");
     $tidnu = time();
     $giventid = mktime(0,0,0,$manad,$dag,$ar);
@@ -37,6 +38,7 @@ if(($dag <= 31) and ($dag > 0)){
 
     }else echo("<p>Datumet du har anget är i det förflutna</p>");
 }
+else echo("<p>Datumet du matat är inte giltigt</p>");
 ?>
 </body>
 </html>
