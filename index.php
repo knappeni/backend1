@@ -12,7 +12,6 @@
     <h1>Index</h1>
     <?php include 'navbar.php'?>
 <?php
-//hej
     echo ("<h3>Uppgift 1</h3>");
     echo ("Script owner: " . get_current_user());
     $manadarray = ["Januari","Februari", "Mars", "April", "Maj","Juni","Juli","Augusti","September","Oktober","November","December"];
@@ -24,7 +23,6 @@
     echo("<p>Serverns IP adress är: ".$_SERVER["SERVER_ADDR"]."</p>");
     echo("<p>Apache och PHP version på servern: ".apache_get_version()." PHP: ".phpversion()."</p>");
 
-    
     echo ("<h3>Uppgift 2</h3>");
     date_default_timezone_set('Europe/Helsinki');
     $tid = strftime($dagarray[date('w')]." %d ".$manadarray[(date('m')-1)]. " %Y Veckonummer: %V Kl: %T");

@@ -17,6 +17,7 @@
 <p>Loggar totalt antal besök och tidpunkter för besök i en fil på servern</p>
 </section>
 <?php
+date_default_timezone_set('Europe/Helsinki');
 $ip = $_SERVER["REMOTE_ADDR"];
 //från och med PHP 7 är det här sättet hur man inte får en varning för $_SERVER['REMOTE_HOST']
 $user = $_SERVER['REMOTE_HOST'] ?? gethostbyaddr( $_SERVER["REMOTE_ADDR"]);

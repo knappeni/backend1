@@ -13,7 +13,7 @@
 <?php include 'navbar.php'?>
 <section>
 <?php
-
+date_default_timezone_set('Europe/Helsinki');
 $user_name = "anvandare";
 $user_value = $_SERVER['REMOTE_HOST'] ?? gethostbyaddr( $_SERVER["REMOTE_ADDR"]);
 setcookie($user_name, $user_value, time()+(86400 * 30), "/");
