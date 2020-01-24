@@ -40,7 +40,7 @@ while(!feof($comment)){
   array_unshift($guestbook_array, $item);
 }
 fclose($comment);
-$stringBook = implode(" ",$guestbook_array);
+$stringBook = "<pre>".implode("\n",$guestbook_array)."</pre>";
 return $stringBook;
 }
 ?>
