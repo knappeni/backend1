@@ -17,6 +17,7 @@
 </section>
 <?php
 $ip = $_SERVER["REMOTE_ADDR"];
+//från och med PHP 7 är det här sättet hur man inte får en varning för $_SERVER['REMOTE_HOST']
 $user = $_SERVER['REMOTE_HOST'] ?? gethostbyaddr( $_SERVER["REMOTE_ADDR"]);
 $time = date("H:i:s j.n.Y");
 $logString = "user: ".$user." | ip: ".$ip." | time: ".$time."\n";
