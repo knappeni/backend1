@@ -13,7 +13,7 @@
     <?php include 'navbar.php'?>
 <?php
 
-    echo ("<p>Uppgift 1</p>");
+    echo ("<h3>Uppgift 1</h3>");
     echo ("Script owner: " . get_current_user());
     $manadarray = ["Januari","Februari", "Mars", "April", "Maj","Juni","Juli","Augusti","September","Oktober","November","December"];
     $dagarray = ["Söndag","Måndag","Tisdag","Onsdag","Torsdag","Fredag","Lördag"];
@@ -22,12 +22,12 @@
     echo("<p>Servern heter: ".$_SERVER["SERVER_NAME"]."</p>");
     echo ("<p>Server porten är nr: " . $serverport . "</p>");
     echo("<p>Serverns IP adress är: ".$_SERVER["SERVER_ADDR"]."</p>");
-    echo("<p>Apache och PHP version på servern: ".apache_get_version()." PHP: ".phpversion()." (<-- this is sad *Sadface*) </p>");
+    echo("<p>Apache och PHP version på servern: ".apache_get_version()." PHP: ".phpversion()."</p>");
 
     
-    echo ("<p>Uppgift 2</p>");
+    echo ("<h3>Uppgift 2</h3>");
     date_default_timezone_set('Europe/Helsinki');
-    $tid = strftime($dagarray[date(w)]." %d ".$manadarray[(date(m)-1)]. " %Y Veckonummer: %V Kl: %T");
+    $tid = strftime($dagarray[date('w')]." %d ".$manadarray[(date('m')-1)]. " %Y Veckonummer: %V Kl: %T");
     echo ("<p>Tiden när du öppnade denna sida: " . $tid ."</p>");
     echo("<p>Samma tid i ett simplare format: ".date("H:i:s j.n.Y")."</p>");
     
