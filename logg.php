@@ -13,9 +13,9 @@
     <?php   include 'navbar.php';
             include 'handyfunctions.php'?>
 <section>
-<h3>Besöksräknaren</h3>
-<p>Loggar totalt antal besök och tidpunkter för besök i en fil på servern</p>
-</section>
+<h3>Uppgift 8</h3>
+<p>Besökräknaren. Loggar totalt antal besök och tidpunkter för besök i en fil på servern</p>
+
 <?php
 date_default_timezone_set('Europe/Helsinki');
 $ip = $_SERVER["REMOTE_ADDR"];
@@ -29,6 +29,9 @@ fwrite($myfile, $logString);
 fclose($myfile);
 $filestring = "besok.log";
 print("<p>Totala antalet besök på sidan: ".count_lines($filestring)."</p>");
+
+echo ("<h3>Uppgift 9</h3>");
 ?>
+</section>
 </body>
 </html>

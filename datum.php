@@ -12,6 +12,7 @@
     <h1>Datum</h1>
     <?php include 'navbar.php'?>
 <article>
+<h3>Uppgift 3</h3>
 <form action="datumRakna.php" method="get">
 Dag: <input type="text" name="dag"><br>
 Månad: <input type="text" name="manad"><br>

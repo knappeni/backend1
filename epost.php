@@ -12,6 +12,7 @@
     <h1>Sign Up</h1>
     <?php include 'navbar.php'?>
 <article>
+<h3>Uppgift 4</h3>
 <form action="epost.php" method="get">
 Epost: <input type="text" name="epost"><br>
 Användarnamn: <input type="text" name="anvandare"><br>
@@ -40,7 +41,8 @@ if(isset($_GET["skicka"]) and $epost != "" and $anvandare !=""){
     }
 else {echo("<p>".$epost. " är inte en giltig e-postadress</p>");}
 
-}else echo("<p>Fyll i Registreringsformuläret</p>");
+}
+else echo("<p>Fyll i Registreringsformuläret</p>");
  
 
    

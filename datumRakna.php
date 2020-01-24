@@ -11,7 +11,7 @@
 <body>
     <h1>Här görs uträkningar</h1>
     <?php include 'navbar.php'?>
-<h3>Jag har räknat ut att:</h3>
+    <h3>Uppgift 3</h3>
 
 <?php
 date_default_timezone_set('Europe/Helsinki');
