@@ -20,9 +20,10 @@ Användarnamn: <input type="text" name="anvandare"><br>
 
 </article>
 <?php
+include('handyfunctions.php');
 if(isset($_GET["skicka"])){
-    $epost = $_GET["epost"];
-    $anvandare = $_GET["anvandare"];
+    $epost = test_input($_GET["epost"]);
+    $anvandare = test_input($_GET["anvandare"]);
     $tecken = range("a","z");
     $storatecken = range("A","Z");
     $siffror = range(0,9);
