@@ -12,7 +12,7 @@
     <h1>Index</h1>
     <?php include 'navbar.php'?>
 <?php
-
+//hej
     echo ("<h3>Uppgift 1</h3>");
     echo ("Script owner: " . get_current_user());
     $manadarray = ["Januari","Februari", "Mars", "April", "Maj","Juni","Juli","Augusti","September","Oktober","November","December"];
