@@ -72,13 +72,16 @@ print("<p>I bilder katalogen finns nu bilderna: </p>");
 $innehall = scandir($katalog);
 ?>
 <div class="row"><?php
+$i = -1;
 foreach ($innehall as $rad) {
    if(($rad != ".") && ($rad != "..")) {
-       $i = 1;
+    
        print("<div class='column'>
        <img src=".$katalog.$rad." alt=".$rad." onclick='openModal();currentSlide(".$i.")' style='width:100%;max-width:300px' class='hover-shadow cursor'>
        </div>");
+   
         }
+        $i++;
     }
 ?>
 </div>
@@ -86,14 +89,18 @@ foreach ($innehall as $rad) {
   <span class="close cursor" onclick="closeModal()">&times;</span>
   <div class="modal-content">
     <?php
+    $i = -1;
     foreach ($innehall as $rad) {
+      
     if(($rad != ".") && ($rad != "..")) {
-       $i = 1;
+     
        print("<div class='mySlides'>
        <div class='numbertext'>".$i."</div>
        <img src=".$katalog.$rad." style='width:100%'>
      </div>");
+     
         }
+        $i++;
     }
     
     ?>
@@ -104,13 +111,17 @@ foreach ($innehall as $rad) {
       <p id="caption"></p>
     </div>
     <?php
+         $i = -1;
         foreach ($innehall as $rad) {
+       
             if(($rad != ".") && ($rad != "..")) {
-               $i = 1;
+            
                print("<div class='column'>
                <img class='demo cursor' src=".$katalog.$rad." style='width:100%' onclick='currentSlide(".$i.")' alt=".$rad.">
              </div>");
+            
                 }
+                $i++;
             }
    ?>
   </div>
