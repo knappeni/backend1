@@ -16,7 +16,7 @@
 <?php
 date_default_timezone_set('Europe/Helsinki');
 $user_name = "anvandare";
-$user_value = $_SERVER['REMOTE_HOST'] ?? gethostbyaddr( $_SERVER["REMOTE_ADDR"]);
+$user_value = $_SERVER['REMOTE_USER']; //?? gethostbyaddr( $_SERVER["REMOTE_ADDR"]);
 setcookie($user_name, $user_value, time()+(86400 * 30), "/");
 
 if(isset($_COOKIE["anvandare"])){

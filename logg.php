@@ -20,7 +20,7 @@
 date_default_timezone_set('Europe/Helsinki');
 $ip = $_SERVER["REMOTE_ADDR"];
 //från och med PHP 7 är det här sättet hur man inte får en varning för $_SERVER['REMOTE_HOST']
-$user = $_SERVER['REMOTE_HOST'] ?? gethostbyaddr( $_SERVER["REMOTE_ADDR"]);
+$user = $_SERVER['REMOTE_USER']; //?? gethostbyaddr( $_SERVER["REMOTE_ADDR"]);
 $time = date("H:i:s j.n.Y");
 $logString = "user: ".$user." | ip: ".$ip." | time: ".$time."\n";
 echo("<p>Strängen som skapades: ".$logString."</p>");
@@ -29,6 +29,7 @@ fwrite($myfile, $logString);
 fclose($myfile);
 $filestring = "besok.log";
 print("<p>Totala antalet besök på sidan: ".count_lines($filestring)."</p>");
+
 
 echo ("<h3>Uppgift 9</h3>");
 ?>
