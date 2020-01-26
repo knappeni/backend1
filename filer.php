@@ -70,20 +70,89 @@ if ($uploadOk == 0) {
 print("<p>I bilder katalogen finns nu bilderna: </p>");
 
 $innehall = scandir($katalog);
-
+?>
+<div class="row"><?php
 foreach ($innehall as $rad) {
    if(($rad != ".") && ($rad != "..")) {
-       print("<img id='myImg' src=".$katalog.$rad." alt=".$rad." style='width:100%;max-width:300px'>
-       <div id="myModal" class="modal">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="img01">
-  <div id="caption"></div>
-</div>");
+       $i = 1;
+       print("<div class='column'>
+       <img src=".$katalog.$rad." alt=".$rad." onclick='openModal();currentSlide(".$i.")' style='width:100%;max-width:300px' class='hover-shadow cursor'>
+       </div>");
         }
     }
-
-
 ?>
+</div>
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+    <?php
+    foreach ($innehall as $rad) {
+    if(($rad != ".") && ($rad != "..")) {
+       $i = 1;
+       print("<div class='mySlides'>
+       <div class='numbertext'>".$i."</div>
+       <img src=".$katalog.$rad." style='width:100%'>
+     </div>");
+        }
+    }
+    
+    ?>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+    <?php
+        foreach ($innehall as $rad) {
+            if(($rad != ".") && ($rad != "..")) {
+               $i = 1;
+               print("<div class='column'>
+               <img class='demo cursor' src=".$katalog.$rad." style='width:100%' onclick='currentSlide(".$i.")' alt=".$rad.">
+             </div>");
+                }
+            }
+   ?>
+  </div>
+</div>
+<script>
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
 </section>
 </body>
 </html>
