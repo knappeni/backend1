@@ -67,12 +67,18 @@ if ($uploadOk == 0) {
         }
     }
 }
-print("<p>I bilder katalogen finns nu filerna: </p>");
+print("<p>I bilder katalogen finns nu bilderna: </p>");
 
 $innehall = scandir($katalog);
 
 foreach ($innehall as $rad) {
-   if(($rad != ".") && ($rad != "..")) {print($rad."<br>");
+   if(($rad != ".") && ($rad != "..")) {
+       print("<img id='myImg' src=".$katalog.$rad." alt=".$rad." style='width:100%;max-width:300px'>
+       <div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>");
         }
     }
 
