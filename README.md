@@ -1,2 +1,2 @@
 # backend1 Simple project in PHP för the course Back-End programming 2020 in UAS Arcada. Collaboration with Knappe & Mutka.
-# Project is hosted on cgi.arcada.fi/~mutkajoa/backend or cgi.arcada.fi/~knappeni/%foldername% (behind arcada domain login)
+# Project is hosted on https://cgi.arcada.fi/~mutkajoa/backend or : http://cgi.arcada.fi/~knappeni/backend1/ (behind arcada domain login)
