@@ -42,6 +42,8 @@ Kommentar: <input type="text" name="guestKommentar"><br>
 <input type="submit" name="getcomments" value="Visa kommentarer">
 </form>
 <?php
+#Kollar inmatningen från userin
+#Skriver ut kommentaren i guestbooken
 if(isset($_GET["send"])){
     $guest_name = test_input($_GET["guestNamn"]);
     $guest_email = test_input($_GET["guestEpost"]);

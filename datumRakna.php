@@ -14,12 +14,16 @@
     <h3>Uppgift 3</h3>
 
 <?php
+include('handyfunctions.php');
 date_default_timezone_set('Europe/Helsinki');
-$dag = $_GET["dag"];
-$manad = $_GET["manad"];
-$ar = $_GET["ar"];
 
-if((int)$dag and (int)$manad and (int)$ar){
+#Skriver ut när inmatade datumet är
+#Kollar också att du bara matar in siffror
+
+$dag = test_input($_GET["dag"]);
+$manad = test_input($_GET["manad"]);
+$ar = test_input($_GET["ar"]);
+if((is_numeric($dag)) and (is_numeric($manad)) and (is_numeric($ar))){
     $maxDag = cal_days_in_month(CAL_GREGORIAN, $manad, $ar);
     if(($dag <= $maxDag) and ($dag > 0)){
         echo "<p> Inmatade datumet är: ".$dag. ".".$manad.".".$ar."</p>";

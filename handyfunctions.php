@@ -21,6 +21,7 @@ $conn->set_charset('utf8');
         return $conn;
       };
     }
+#Räknar antal besök
 function count_lines($file){
 $linecount = 0;
 $handle = fopen($file, "r");
@@ -31,7 +32,7 @@ while(!feof($handle)){
 fclose($handle);
 return $linecount;
 }
-
+#Visar guestbooken
 function show_guestbook($guests){
 $guestbook_array = array();
 $comment = fopen($guests, "r");

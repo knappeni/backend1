@@ -19,11 +19,12 @@ $user_name = "anvandare";
 $user_value = $_SERVER['REMOTE_USER']; //?? gethostbyaddr( $_SERVER["REMOTE_ADDR"]);
 setcookie($user_name, $user_value, time()+(86400 * 30), "/");
 
+#Kollar om man senast har varit på sidan
 if(isset($_COOKIE["anvandare"])){
     print("<p>Hejsan, ".$_COOKIE["anvandare"]."</p>");
     print("<p>Du var här senast: ".$_COOKIE["lastvisit"]."</p>");
 }
-
+#Kollar när man första gången var på sidan
 $visited_name = "lastvisit";
 $visited_time = date("H:i:s j.n.Y");
 if (!isset($_COOKIE["firstVisit"])){

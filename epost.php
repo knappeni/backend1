@@ -23,7 +23,9 @@ Användarnamn: <input type="text" name="anvandare"><br>
 <?php
 include('handyfunctions.php');
 
-
+#Kollar att du matar int en giltig epost
+#Kollar att du inte kan mata in vad som helst
+#Skapar ett lösenord till dig
 if(isset($_GET["skicka"])){
     $anvandare = test_input($_GET["anvandare"]);
     $epost = test_input($_GET["epost"]);
